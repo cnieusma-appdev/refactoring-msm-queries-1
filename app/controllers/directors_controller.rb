@@ -8,11 +8,13 @@ class DirectorsController < ApplicationController
 
   def show
     the_id = params.fetch("path_id")
+    matching_movies = Movie.where({ :id => the_id })
+    @the_movie = matching_movies.at(0)
 
-    matching_directors = Director.where({ :id => the_id })
-    @the_director = matching_directors.at(0)
+    @the_movie.director.name
 
     render({ :template => "director_templates/show.html.erb" })
+
   end
 
   def max_dob
