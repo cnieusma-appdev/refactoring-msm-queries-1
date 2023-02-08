@@ -8,11 +8,8 @@ class DirectorsController < ApplicationController
 
   def show
     the_id = params.fetch("path_id")
-    matching_movies = Movie.where({ :id => the_id })
-    @the_movie = matching_movies.at(0)
-
-    @the_director = @the_movie.the_director
-
+    @the_director = Director.where({ :id => the_id }).at(0)
+    
     render({ :template => "director_templates/show.html.erb" })
 
   end

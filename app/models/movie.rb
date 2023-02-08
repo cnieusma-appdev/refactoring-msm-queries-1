@@ -13,7 +13,7 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
-  def the_director
+  def director
     
     d_id = self.director_id
     matching_directors = Director.where({ :id => d_id })
