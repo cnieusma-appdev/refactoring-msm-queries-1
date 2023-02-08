@@ -36,12 +36,6 @@ class DirectorsController < ApplicationController
     render({ :template => "director_templates/eldest" })
   end
 
-  def filmography
-    
-    my_id = self.id
-    matching_movies = Movie.where({ :director_id => my_id })
-    return matching_movies
-
-  end
+  
 
 end
