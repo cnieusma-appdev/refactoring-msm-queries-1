@@ -11,7 +11,7 @@ class DirectorsController < ApplicationController
     matching_movies = Movie.where({ :id => the_id })
     @the_movie = matching_movies.at(0)
 
-    @the_movie.director.name
+    @the_director = @the_movie.the_director
 
     render({ :template => "director_templates/show.html.erb" })
 
